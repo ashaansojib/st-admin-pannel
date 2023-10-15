@@ -1,3 +1,3 @@
 ## Installed Packages
 * React + Tailwindcss
-* MUI + 
+* MUI + MUI/ICONS
