@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { Avatar } from "@mui/material";
 import { Link } from "react-router-dom";
 const Header = () => {
-    const [arrow, setArrow] = useState(false);
+    const [arrow, setArrow] = useState(true);
 
     return (
         <div className="flex gap-3 justify-between items-center">
@@ -37,9 +37,9 @@ const Header = () => {
                             <span className="text-blue-600 text-center text-[13px]">Administrator</span>
                         </div>
                     </div>
-                    <Link className="p-2 font-medium text-gray-700 w-full inline-block border-t">My Profile</Link>
-                    <Link className="p-2 font-medium text-gray-700 w-full inline-block border-t">Inbox</Link>
-                    <Link className="p-2 font-medium text-gray-700 w-full inline-block border-t">Logout</Link>
+                    <Link className="p-2 font-medium text-gray-700 w-full inline-block border-t hover:bg-gray-50">My Profile</Link>
+                    <Link className="p-2 font-medium text-gray-700 w-full inline-block border-t hover:bg-gray-50">Inbox</Link>
+                    <Link className="p-2 font-medium text-gray-700 w-full inline-block border-t hover:bg-gray-50">Logout</Link>
                 </div>
             </div>
         </div>

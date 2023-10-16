@@ -1,6 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import AddItem from "../components/add-item/AddItem";
 import Dashboard from "../layout/Dashboard";
+import AllProducts from "../components/all-products/AllProducts";
 
 const router = createBrowserRouter([
     {
@@ -8,8 +9,12 @@ const router = createBrowserRouter([
         element: <Dashboard />,
         children: [
             {
-                path: '/add-item',
+                path: '/add-product',
                 element: <AddItem />
+            },
+            {
+                path: '/all-products',
+                element: <AllProducts />
             }
         ]
     },

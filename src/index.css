@@ -1,3 +1,13 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+body{
+    font-family: 'Noto Sans', sans-serif;
+}
+/* nav css  */
+.active{
+    @apply text-blue-600
+}
+.default{
+    @apply hover:text-blue-600
+}
