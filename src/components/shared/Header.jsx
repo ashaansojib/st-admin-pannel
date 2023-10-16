@@ -1,7 +1,9 @@
-import { FaBars, FaBell, FaFly } from "react-icons/fa";
-import React from 'react';
+import { FaAngleDown, FaAngleUp, FaBars, FaBell, FaFly } from "react-icons/fa";
+import React, { useState } from 'react';
 import { Avatar } from "@mui/material";
+import { Link } from "react-router-dom";
 const Header = () => {
+    const [arrow, setArrow] = useState(false);
 
     return (
         <div className="flex gap-3 justify-between items-center">
@@ -14,12 +16,30 @@ const Header = () => {
                     <button className="p-3 rounded-full bg-slate-100"><FaFly /></button>
                     <button className="p-3 rounded-full bg-slate-100"><FaBell /></button>
                 </div>
-                <div className="flex gap-1 items-center">
+                <div onClick={() => setArrow(!arrow)} className="flex gap-1 items-center cursor-pointer relative">
                     <Avatar alt="Remy Sharp" src="/mypp-circle.png" />
                     <div>
                         <p className="font-medium">Ashaduzzaman</p>
                         <span className="text-blue-600 text-center text-[13px]">Administrator</span>
                     </div>
+                    <span className="text-gray-600">
+                        {
+                            arrow ? <FaAngleUp /> : <FaAngleDown />
+                        }
+                    </span>
+                </div>
+                {/* profile dropdown */}
+                <div className={`absolute top-16 border ${arrow ? 'hidden' : 'block'}`}>
+                    <div className="bg-gray-50 py-2 px-3 flex items-center gap-2">
+                        <Avatar alt="No Image" src="/mypp-circle.png" />
+                        <div>
+                            <p className="font-medium">Ashaduzzaman</p>
+                            <span className="text-blue-600 text-center text-[13px]">Administrator</span>
+                        </div>
+                    </div>
+                    <Link className="p-2 font-medium text-gray-700 w-full inline-block border-t">My Profile</Link>
+                    <Link className="p-2 font-medium text-gray-700 w-full inline-block border-t">Inbox</Link>
+                    <Link className="p-2 font-medium text-gray-700 w-full inline-block border-t">Logout</Link>
                 </div>
             </div>
         </div>
