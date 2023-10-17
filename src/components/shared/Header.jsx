@@ -29,17 +29,17 @@ const Header = () => {
                     </span>
                 </div>
                 {/* profile dropdown */}
-                <div className={`absolute top-16 border ${arrow ? 'hidden' : 'block'}`}>
-                    <div className="bg-gray-50 py-2 px-3 flex items-center gap-2">
+                <div className={`absolute top-16 bg-slate-50 border ${arrow ? 'hidden' : 'block'}`}>
+                    <div className="py-2 px-3 flex items-center gap-2">
                         <Avatar alt="No Image" src="/mypp-circle.png" />
                         <div>
                             <p className="font-medium">Ashaduzzaman</p>
                             <span className="text-blue-600 text-center text-[13px]">Administrator</span>
                         </div>
                     </div>
-                    <Link className="p-2 font-medium text-gray-700 w-full inline-block border-t hover:bg-gray-50">My Profile</Link>
-                    <Link className="p-2 font-medium text-gray-700 w-full inline-block border-t hover:bg-gray-50">Inbox</Link>
-                    <Link className="p-2 font-medium text-gray-700 w-full inline-block border-t hover:bg-gray-50">Logout</Link>
+                    <Link className="p-2 font-medium text-gray-700 w-full inline-block border-t hover:bg-white">My Profile</Link>
+                    <Link className="p-2 font-medium text-gray-700 w-full inline-block border-t hover:bg-white">Inbox</Link>
+                    <Link className="p-2 font-medium text-gray-700 w-full inline-block border-t hover:bg-white">Logout</Link>
                 </div>
             </div>
         </div>
