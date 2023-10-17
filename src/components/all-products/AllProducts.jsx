@@ -1,3 +1,4 @@
+import { Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from '@mui/material';
 import React from 'react';
 
 const AllProducts = () => {
@@ -8,34 +9,33 @@ const AllProducts = () => {
                 <p className='text-gray-600'>dashboard / pathname</p>
             </div>
             {/* product table */}
-            <div className='bg-white rounded-lg p-3 overflow-x-auto'>
-                <div className='grid grid-cols-7 justify-between items-center gap-2 font-medium border p-2'>
-                    <h4>SL</h4>
-                    <h4>Brand</h4>
-                    <h4>Model</h4>
-                    <h4>Price</h4>
-                    <h4>Quantity</h4>
-                    <h4>Date</h4>
-                    <h4>Actions</h4>
-                </div>
-                <div className='grid grid-cols-7 justify-between items-center gap-2 p-2 border mt-1 text-gray-600'>
-                    <span>1.</span>
-                    <p>Oppo</p>
-                    <p>A31</p>
-                    <p>1200TK</p>
-                    <p>2</p>
-                    <p>12/10/23 <br /> 11:23 AM</p>
-                    <p>Delete</p>
-                </div>
-                <div className='grid grid-cols-7 justify-between items-center gap-2 p-2 border mt-1'>
-                    <span>1.</span>
-                    <p>Oppo</p>
-                    <p>A31</p>
-                    <p>1200TK</p>
-                    <p>2</p>
-                    <p>12/10/23 <br /> 11:23 AM</p>
-                    <p>Delete</p>
-                </div>
+            <div className='rounded-lg p-3'>
+                <TableContainer component={Paper}>
+                    <Table aria-label="simple table">
+                        <TableHead>
+                            <TableRow className='font-medium'>
+                                <TableCell>#SL</TableCell>
+                                <TableCell>Brand</TableCell>
+                                <TableCell>Model</TableCell>
+                                <TableCell>Price</TableCell>
+                                <TableCell>Quantity</TableCell>
+                                <TableCell>Date</TableCell>
+                                <TableCell>Actions</TableCell>
+                            </TableRow>
+                        </TableHead>
+                        <TableBody>
+                            <TableRow>
+                                <TableCell>01.</TableCell>
+                                <TableCell>Oppo</TableCell>
+                                <TableCell>A54</TableCell>
+                                <TableCell>1750TK</TableCell>
+                                <TableCell>2</TableCell>
+                                <TableCell>12/10/23</TableCell>
+                                <TableCell>Delete</TableCell>
+                            </TableRow>
+                        </TableBody>
+                    </Table>
+                </TableContainer>
             </div>
         </div>
     );
