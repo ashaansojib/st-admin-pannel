@@ -1,12 +1,14 @@
 import { Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from '@mui/material';
 import React from 'react';
+import { useLocation } from 'react-router-dom';
 
 const AllProducts = () => {
+    const location = useLocation();
     return (
         <div className='bg-gray-100 mt-2 p-3'>
             <div className='flex justify-between items-center pb-3'>
                 <h2 className='text-xl font-medium'>All Product Lists : </h2>
-                <p className='text-gray-600'>dashboard / pathname</p>
+                <p className='text-gray-600'>dashboard <span className='underline'>{location.pathname}</span></p>
             </div>
             {/* product table */}
             <div className='rounded-lg p-3'>

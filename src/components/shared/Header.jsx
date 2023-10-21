@@ -9,7 +9,7 @@ const Header = () => {
         <div className="flex gap-3 justify-between items-center">
             <div className="flex gap-3 items-center">
                 <button className="p-3 bg-blue-600 text-white rounded-md"><FaBars /></button>
-                <input type="text" name="" id="" placeholder="Search Here..." className="p-2 border rounded-md w-full bg-slate-100" />
+                <input type="text" disabled={true} name="" id="" placeholder="Search Here..." className="p-2 border rounded-md w-full bg-slate-100" />
             </div>
             <div className="flex justify-end items-center gap-4">
                 <div className="flex gap-2">
