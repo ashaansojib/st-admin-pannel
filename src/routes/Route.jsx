@@ -3,6 +3,7 @@ import AddItem from "../components/add-item/AddItem";
 import Dashboard from "../layout/Dashboard";
 import AllProducts from "../components/all-products/AllProducts";
 import UserLists from "../components/admin/UserLists";
+import AddCustomer from "../components/customerLists/AddCustomer";
 
 const router = createBrowserRouter([
     {
@@ -16,6 +17,10 @@ const router = createBrowserRouter([
             {
                 path: '/all-products',
                 element: <AllProducts />
+            },
+            {
+                path: '/create-customer',
+                element: <AddCustomer />
             },
             {
                 path: '/admin/manage-users',
