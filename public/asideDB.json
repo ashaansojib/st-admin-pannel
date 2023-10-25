@@ -1,10 +1,19 @@
 [
     {
         "id": "1",
-        "name": "Jhantu Vai"
+        "name": "Jhantu Vai",
+        "item": [
+            {"brand": "Oppo", "model": "a12", "price": "1200"},
+            {"brand": "Oppo", "model": "a5s", "price": "1200"}
+        ]
     },
     {
         "id": "2",
-        "name": "Alamgir Vai"
+        "name": "Alamgir Vai",
+        "item": [
+            {"brand": "Realme", "model": "a12", "price": "1200"},
+            {"brand": "Realme", "model": "a12", "price": "1200"},
+            {"brand": "Realme", "model": "a5s", "price": "1200"}
+        ]
     }
 ]

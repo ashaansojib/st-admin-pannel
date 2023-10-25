@@ -9,7 +9,8 @@ const Aside = () => {
         fetch('/asideDB.json')
             .then(res => res.json())
             .then(data => setCustomer(data))
-    }, [])
+    }, []);
+    console.log(customer)
     return (
         <aside className='overflow-y-auto h-full'>
             <h2 className='text-2xl font-semibold'>ST Manage App</h2>
