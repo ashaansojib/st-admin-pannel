@@ -28,7 +28,7 @@ const Aside = () => {
                         Packages Stock
                     </div>
                 </NavLink>
-                <NavLink to='/manage-users' className={({ isActive }) => isActive ? 'active' : 'default'}>
+                <NavLink to='admin/manage-users' className={({ isActive }) => isActive ? 'active' : 'default'}>
                     <div className='flex items-center gap-3 font-medium py-2 border-b'>
                         <FaUserAlt />
                         Manage Users

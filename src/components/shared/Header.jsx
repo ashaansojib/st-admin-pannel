@@ -37,9 +37,9 @@ const Header = () => {
                             <span className="text-blue-600 text-center text-[13px]">Administrator</span>
                         </div>
                     </div>
-                    <Link className="p-2 font-medium text-gray-700 w-full inline-block border-t hover:bg-white">My Profile</Link>
-                    <Link className="p-2 font-medium text-gray-700 w-full inline-block border-t hover:bg-white">Add Customer</Link>
-                    <Link className="p-2 font-medium text-gray-700 w-full inline-block border-t hover:bg-white">Logout</Link>
+                    <Link onClick={()=> setArrow(!arrow)} className="p-2 font-medium text-gray-700 w-full inline-block border-t hover:bg-white">My Profile</Link>
+                    <Link onClick={()=> setArrow(!arrow)} className="p-2 font-medium text-gray-700 w-full inline-block border-t hover:bg-white">Add Customer</Link>
+                    <Link onClick={()=> setArrow(!arrow)} className="p-2 font-medium text-gray-700 w-full inline-block border-t hover:bg-white">Logout</Link>
                 </div>
             </div>
         </div>
