@@ -22,7 +22,7 @@ const AddItem = () => {
                     <TextField {...register("model", { required: true })} id="standard-basic" label="Model" variant="standard" />
                     <TextField {...register("quantity", { required: true })} id="standard-basic" label="Quantity" variant="standard" />
                     <TextField  {...register("price", { required: true })}id="standard-basic" label="Price" variant="standard" />
-                    <input type="submit" className='bg-gray-500 w-full p-2 text-white font-medium  rounded-md cursor-pointer hover:bg-white hover:text-black transition hover:border' value="Add Item" />
+                    <input type="submit" className='bg-gray-500 w-full p-2 font-medium cursor-pointer hover:bg-white text-white hover:text-black transition hover:border border rounded-md' value="Add Item" />
                 </div>
             </form>
         </div>

@@ -2,7 +2,7 @@ import React from 'react';
 
 const Footer = () => {
     return (
-        <p className='text-center p-1'>All Rights Are Reserved By Sojib | 2023</p>
+        <p className='text-center p-1 border-b'>All Rights Are Reserved By Sojib | 2023</p>
     );
 };
 
