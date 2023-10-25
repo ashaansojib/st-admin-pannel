@@ -17,12 +17,12 @@ const AddItem = () => {
                 <p className='text-gray-600'>dashboard <Link className='underline'>{location.pathname}</Link></p>
             </div>
             <form onSubmit={handleSubmit(onSubmit)}>
-                <div className='grid md:grid-cols-3 grid-cols-1 gap-4 justify-between items-center'>
+                <div className='lg:w-2/3 grid md:grid-cols-2 grid-cols-1 gap-4 justify-between items-center'>
                     <TextField {...register("brand", { required: true })} id="standard-basic" label="Brand" variant="standard" />
                     <TextField {...register("model", { required: true })} id="standard-basic" label="Model" variant="standard" />
                     <TextField {...register("quantity", { required: true })} id="standard-basic" label="Quantity" variant="standard" />
                     <TextField  {...register("price", { required: true })}id="standard-basic" label="Price" variant="standard" />
-                    <input type="submit" className='bg-gray-500 w-full' value="Add Item" />
+                    <input type="submit" className='bg-gray-500 w-full p-2 text-white font-medium  rounded-md cursor-pointer hover:bg-white hover:text-black transition hover:border' value="Add Item" />
                 </div>
             </form>
         </div>

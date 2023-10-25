@@ -4,7 +4,7 @@ import { FaAngleUp, FaFileAlt, FaPen } from 'react-icons/fa';
 import { NavLink } from 'react-router-dom';
 
 const Customers = ({item}) => {
-    const {name} = item;
+    const {name, id} = item;
     return (
         <div>
             <Disclosure>
