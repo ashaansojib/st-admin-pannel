@@ -1,9 +1,10 @@
 import { Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from '@mui/material';
 import React from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLoaderData, useLocation } from 'react-router-dom';
 import { FaBuffer, FaChartLine, FaDownload, FaPlus } from "react-icons/fa";
 const AllProducts = () => {
     const location = useLocation();
+    const singleCustomer = useLoaderData();
     return (
         <div className='bg-gray-100 mt-2 p-3'>
             <div className='flex justify-between items-center pb-3'>
@@ -35,15 +36,18 @@ const AllProducts = () => {
                             </TableRow>
                         </TableHead>
                         <TableBody>
-                            <TableRow>
-                                <TableCell>01.</TableCell>
-                                <TableCell>Oppo</TableCell>
-                                <TableCell>A54</TableCell>
-                                <TableCell>1750TK</TableCell>
-                                <TableCell>2</TableCell>
-                                <TableCell>12/10/23</TableCell>
-                                <TableCell>Delete</TableCell>
-                            </TableRow>
+                            {
+                                singleCustomer?.stock.map((product, i) =>
+                                    <TableRow key={i}>
+                                        <TableCell>01.</TableCell>
+                                        <TableCell>{product.brand}</TableCell>
+                                        <TableCell>{product.model}</TableCell>
+                                        <TableCell>{product.price}</TableCell>
+                                        <TableCell>{product.quantity}</TableCell>
+                                        <TableCell>12/10/23</TableCell>
+                                        <TableCell>Delete</TableCell>
+                                    </TableRow>)
+                            }
                         </TableBody>
                     </Table>
                 </TableContainer>

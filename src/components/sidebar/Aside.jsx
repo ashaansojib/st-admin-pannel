@@ -6,7 +6,7 @@ import Customers from '../customerLists/Customers';
 const Aside = () => {
     const [customer, setCustomer] = useState([])
     useEffect(() => {
-        fetch('/asideDB.json')
+        fetch('http://localhost:9988/customer-list')
             .then(res => res.json())
             .then(data => setCustomer(data))
     }, []);
@@ -18,7 +18,7 @@ const Aside = () => {
                 <p className='text-sm text-blue-600'>Customer Lists</p>
                 {
                     customer?.map(item => <Customers
-                    key={item.id}
+                    key={item._id}
                     item={item}
                     ></Customers>)
                 }

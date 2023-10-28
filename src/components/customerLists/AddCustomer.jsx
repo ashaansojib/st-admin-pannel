@@ -24,6 +24,13 @@ const AddCustomer = () => {
             stock
         }
         console.log(loadData)
+        fetch('http://localhost:9988/create-customer', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(loadData)
+        })
         reset()
     }
     return (
