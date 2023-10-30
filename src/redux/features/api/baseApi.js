@@ -18,11 +18,14 @@ const baseApi = createApi({
             }),
             invalidatesTags: ['customers']
         }),
-        singleCustomer: builder.query({
-            query: (id) => `/single-customer/${id}`,
+        removeCustomer: builder.mutation({
+            query: (id) => ({
+                url: `/remove-customer/${id}`,
+                method: 'DELETE'
+            }),
             invalidatesTags: ['customers']
-        })
+        }),
     }),
 });
-export const { useGetCustomerQuery, useSetCustomerMutation } = baseApi;
+export const { useGetCustomerQuery, useSetCustomerMutation, useRemoveCustomerMutation } = baseApi;
 export default baseApi;

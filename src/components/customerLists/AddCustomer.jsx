@@ -3,6 +3,7 @@ import React from 'react';
 import { useForm } from 'react-hook-form';
 import { Link, useLocation } from 'react-router-dom';
 import { useSetCustomerMutation } from '../../redux/features/api/baseApi';
+import { ToastContainer, toast } from 'react-toastify';
 
 const AddCustomer = () => {
     const location = useLocation();
@@ -24,12 +25,26 @@ const AddCustomer = () => {
             phone,
             stock
         }
+        // customer add toast
+        toast.success('Customer added successfully', {
+            position: "top-center",
+            autoClose: 2000,
+            hideProgressBar: false,
+            newestOnTop: false,
+            closeOnClick: true,
+            rtl: false,
+            pauseOnFocusLoss: true,
+            draggable: true,
+            pauseOnHover: true,
+            theme: "light"
+        });
         setCustomer(loadData);
         reset()
     }
     return (
         <div className='bg-gray-100 mt-2 p-3'>
             <div className='lg:w-2/3 mx-auto'>
+                <ToastContainer />
                 <div className='flex justify-between items-center pb-3'>
                     <h2 className='text-xl font-medium'>Add Product : </h2>
                     <p className='text-gray-600'>dashboard <Link className='underline'>{location.pathname}</Link></p>

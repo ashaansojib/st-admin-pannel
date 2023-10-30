@@ -6,3 +6,4 @@
 * npm install moment --save
 * npm install react-hook-form
 * npm install @reduxjs/toolkit react-redux
+* npm i react-toastify
