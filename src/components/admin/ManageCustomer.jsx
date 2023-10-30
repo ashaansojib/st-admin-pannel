@@ -1,5 +1,6 @@
 import React from 'react';
 import { useGetCustomerQuery } from '../../redux/features/api/baseApi';
+import { Avatar } from '@mui/material';
 
 const ManageCustomer = () => {
     const { data: customers, isLoading, isError } = useGetCustomerQuery();
@@ -16,6 +17,13 @@ const ManageCustomer = () => {
                                 <p className='px-1 font-bold text-red-600 bg-slate-100 rounded-full'>{item.stock?.length}</p>
                             </div>
                             <span className='text-[12px] text-gray-700'>{item.phone}</span>
+                            <div className='flex justify-between items-center mt-2'>
+                                <Avatar alt="Remy Sharp" src="/mypp-circle.png" />
+                                <div>
+                                    <small className='p-1 bg-blue-500 text-white font-bold text-[10px] cursor-pointer'>REMOVE</small>
+                                    <small className='p-1 bg-blue-500 text-white font-bold text-[10px] ml-1 cursor-pointer'>EDIT</small>
+                                </div>
+                            </div>
                         </div>)
                 }
             </div>
