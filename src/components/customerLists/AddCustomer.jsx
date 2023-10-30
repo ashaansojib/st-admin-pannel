@@ -2,35 +2,29 @@ import { TextField } from '@mui/material';
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { Link, useLocation } from 'react-router-dom';
+import { useSetCustomerMutation } from '../../redux/features/api/baseApi';
 
 const AddCustomer = () => {
     const location = useLocation();
-    const { register, handleSubmit, reset } = useForm()
+    const { register, handleSubmit, reset } = useForm();
+    const [setCustomer] = useSetCustomerMutation();
     const onSubmit = ({ customerName, phone, price, quantity, brand, model }) => {
 
         const stock = [
             {
                 price,
-                quantity, 
+                quantity,
                 brand,
                 model
             }
         ]
-        // data.item =  stock;
-
+        
         const loadData = {
             customerName,
             phone,
             stock
         }
-        console.log(loadData)
-        fetch('http://localhost:9988/create-customer', {
-            method: 'POST',
-            headers: {
-                'content-type': 'application/json'
-            },
-            body: JSON.stringify(loadData)
-        })
+        setCustomer(loadData);
         reset()
     }
     return (

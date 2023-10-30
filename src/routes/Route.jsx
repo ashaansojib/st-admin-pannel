@@ -4,6 +4,7 @@ import Dashboard from "../layout/Dashboard";
 import AllProducts from "../components/all-products/AllProducts";
 import UserLists from "../components/admin/UserLists";
 import AddCustomer from "../components/customerLists/AddCustomer";
+import ManageCustomer from "../components/admin/ManageCustomer";
 
 const router = createBrowserRouter([
     {
@@ -22,6 +23,10 @@ const router = createBrowserRouter([
             {
                 path: '/create-customer',
                 element: <AddCustomer />
+            },
+            {
+                path: '/manage-customer',
+                element: <ManageCustomer />
             },
             {
                 path: '/admin/manage-users',

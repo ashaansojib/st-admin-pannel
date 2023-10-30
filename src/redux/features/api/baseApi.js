@@ -10,7 +10,19 @@ const baseApi = createApi({
             query: () => '/customer-list',
             providesTags: ['customers']
         }),
+        setCustomer: builder.mutation({
+            query: (data) =>({
+                url: '/create-customer',
+                method: 'POST',
+                body: data,
+            }),
+            invalidatesTags: ['customers']
+        }),
+        singleCustomer: builder.query({
+            query: (id) => `/single-customer/${id}`,
+            invalidatesTags: ['customers']
+        })
     }),
 });
-export const { useGetCustomerQuery } = baseApi;
+export const { useGetCustomerQuery, useSetCustomerMutation } = baseApi;
 export default baseApi;
