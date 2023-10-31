@@ -1,17 +1,31 @@
 import { TextField } from '@mui/material';
 import React from 'react';
 import { useForm } from 'react-hook-form';
-import { useDispatch } from 'react-redux';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useParams } from 'react-router-dom';
 import { useUpdateProductMutation } from '../../redux/features/api/baseApi';
+import { ToastContainer, toast } from 'react-toastify';
 
 const AddItem = () => {
     const location = useLocation();
-    const disPatch = useDispatch();
+    const customerID = useParams();
+    const [updateExistPoduct, { isLoading }] = useUpdateProductMutation();
     const { register, handleSubmit, reset } = useForm();
     const onSubmit = (item) => {
-        console.log(item)
-        disPatch(useUpdateProductMutation(item))
+        item.customerID = customerID.id;
+        updateExistPoduct(item)
+        // product add toast
+        toast.success('One Product Added!!', {
+            position: "top-center",
+            autoClose: 2000,
+            hideProgressBar: false,
+            newestOnTop: false,
+            closeOnClick: true,
+            rtl: false,
+            pauseOnFocusLoss: true,
+            draggable: true,
+            pauseOnHover: true,
+            theme: "light"
+        });
         reset()
     }
     return (
@@ -20,12 +34,13 @@ const AddItem = () => {
                 <h2 className='text-xl font-medium'>Add Product : </h2>
                 <p className='text-gray-600'>dashboard <Link className='underline'>{location.pathname}</Link></p>
             </div>
+            <ToastContainer />
             <form onSubmit={handleSubmit(onSubmit)}>
                 <div className='lg:w-2/3 grid md:grid-cols-2 grid-cols-1 gap-4 justify-between items-center'>
                     <TextField {...register("brand", { required: true })} id="standard-basic" label="Brand" variant="standard" />
                     <TextField {...register("model", { required: true })} id="standard-basic" label="Model" variant="standard" />
                     <TextField {...register("quantity", { required: true })} id="standard-basic" label="Quantity" variant="standard" />
-                    <TextField  {...register("price", { required: true })}id="standard-basic" label="Price" variant="standard" />
+                    <TextField  {...register("price", { required: true })} id="standard-basic" label="Price" variant="standard" />
                     <input type="submit" className='bg-gray-500 w-full p-2 font-medium cursor-pointer hover:bg-white text-white hover:text-black transition hover:border border rounded-md' value="Add Item" />
                 </div>
             </form>

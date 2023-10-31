@@ -11,7 +11,7 @@ const baseApi = createApi({
             providesTags: ['customers']
         }),
         setCustomer: builder.mutation({
-            query: (data) =>({
+            query: (data) => ({
                 url: '/create-customer',
                 method: 'POST',
                 body: data,
@@ -26,9 +26,10 @@ const baseApi = createApi({
             invalidatesTags: ['customers']
         }),
         updateProduct: builder.mutation({
-            query: (data) =>({
-                url: `/add-existing-item/:${data}`,
-                method: 'PATCH'
+            query: (data) => ({
+                url: '/add-existing-item',
+                method: 'PUT',
+                body: data,
             }),
         }),
     }),
