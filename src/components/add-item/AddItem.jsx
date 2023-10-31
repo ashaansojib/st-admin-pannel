@@ -1,13 +1,17 @@
 import { TextField } from '@mui/material';
 import React from 'react';
 import { useForm } from 'react-hook-form';
+import { useDispatch } from 'react-redux';
 import { Link, useLocation } from 'react-router-dom';
+import { useUpdateProductMutation } from '../../redux/features/api/baseApi';
 
 const AddItem = () => {
     const location = useLocation();
-    const { register, handleSubmit, reset } = useForm()
-    const onSubmit = (data) => {
-        console.log(data)
+    const disPatch = useDispatch();
+    const { register, handleSubmit, reset } = useForm();
+    const onSubmit = (item) => {
+        console.log(item)
+        disPatch(useUpdateProductMutation(item))
         reset()
     }
     return (

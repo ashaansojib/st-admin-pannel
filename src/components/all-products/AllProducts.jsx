@@ -17,7 +17,7 @@ const AllProducts = () => {
                     <button className='p-3 bg-blue-600 text-white rounded-md'><FaChartLine /></button>
                     <button className='p-3 bg-blue-600 text-white rounded-md'><FaBuffer /></button>
                     <button className='p-2 bg-blue-600 text-white rounded-md flex items-center gap-2'><FaDownload /> Download</button>
-                    <Link to='/add-product'><button className='p-3 bg-blue-600 text-white rounded-md'><FaPlus /></button></Link>
+                    <Link to={`/add-product/${singleCustomer._id}`}><button className='p-3 bg-blue-600 text-white rounded-md'><FaPlus /></button></Link>
                 </div>
             </div>
             {/* product table */}

@@ -25,7 +25,13 @@ const baseApi = createApi({
             }),
             invalidatesTags: ['customers']
         }),
+        updateProduct: builder.mutation({
+            query: (data) =>({
+                url: `/add-existing-item/:${data}`,
+                method: 'PATCH'
+            }),
+        }),
     }),
 });
-export const { useGetCustomerQuery, useSetCustomerMutation, useRemoveCustomerMutation } = baseApi;
+export const { useGetCustomerQuery, useSetCustomerMutation, useRemoveCustomerMutation, useUpdateProductMutation } = baseApi;
 export default baseApi;
