@@ -11,8 +11,14 @@ const AddItem = () => {
     const [updateExistPoduct, { isLoading }] = useUpdateProductMutation();
     const { register, handleSubmit, reset } = useForm();
     const onSubmit = (item) => {
+
+        // create random product id
+        const randomID = Math.floor(100000 + Math.random() * 900000);
+
+        item.productID = randomID;
         item.customerID = customerID.id;
         updateExistPoduct(item)
+
         // product add toast
         toast.success('One Product Added!!', {
             position: "top-center",
