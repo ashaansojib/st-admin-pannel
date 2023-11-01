@@ -9,13 +9,14 @@ const AllProducts = () => {
     const singleCustomer = useLoaderData();
     const [removeProduct] = useRemoveSingleProductMutation();
     // manage single product delete function
-    // const updateStock = [...item];
+    
     const handleDeleteProduct = (id) => {
         // console.log(id)
         const product = singleCustomer.stock;
         const product2 = product?.filter(single => single.productID !== id)
         console.log(product)
         console.log(product2)
+        removeProduct({customerID: singleCustomer._id, productID: id})
     }
     return (
         <div className='bg-gray-100 mt-2 p-3'>
@@ -61,7 +62,7 @@ const AllProducts = () => {
                                                 <p>{product.createdAt ? moment(product.createdAt).format('DD/MM/YY') : 'N/A'}</p>
                                             </Tooltip>
                                         </TableCell>
-                                        <TableCell><button onClick={() => handleDeleteProduct(product?.productID)} className='bg-blue-600 text-white p-1 rounded-sm'>DELETE</button></TableCell>
+                                        <TableCell><button onClick={() => handleDeleteProduct(product?.price)} className='bg-blue-600 text-white p-1 rounded-sm'>DELETE</button></TableCell>
                                     </TableRow>)
                             }
                         </TableBody>

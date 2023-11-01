@@ -36,7 +36,7 @@ const baseApi = createApi({
         removeSingleProduct: builder.mutation({
             query: ({customerID, productID}) =>({
                 url: `/remove-single-product/${customerID}/${productID}`,
-                method: 'DELETE'
+                method: 'DELETE',
             }),
             invalidatesTags: ['customers']
         }),
