@@ -3,12 +3,17 @@ import React from 'react';
 import { Link, useLoaderData, useLocation } from 'react-router-dom';
 import { FaBuffer, FaChartLine, FaDownload, FaPlus } from "react-icons/fa";
 import moment from 'moment'
+import { useRemoveSingleProductMutation } from '../../redux/features/api/baseApi';
 const AllProducts = () => {
     const location = useLocation();
     const singleCustomer = useLoaderData();
+    const [removeProduct] = useRemoveSingleProductMutation();
     // manage single product delete function
     const handleDeleteProduct = (id) => {
-        console.log('remove', id)
+        if (id) {
+            removeProduct({ customerID: singleCustomer._id, productID: id })
+        }
+        console.log(singleCustomer._id, id)
     }
     return (
         <div className='bg-gray-100 mt-2 p-3'>

@@ -31,8 +31,16 @@ const baseApi = createApi({
                 method: 'PUT',
                 body: data,
             }),
+            invalidatesTags: ['customers']
+        }),
+        removeSingleProduct: builder.mutation({
+            query: ({customerID, productID}) =>({
+                url: `/remove-single-product/${customerID}/${productID}`,
+                method: 'DELETE'
+            }),
+            invalidatesTags: ['customers']
         }),
     }),
 });
-export const { useGetCustomerQuery, useSetCustomerMutation, useRemoveCustomerMutation, useUpdateProductMutation } = baseApi;
+export const { useGetCustomerQuery, useSetCustomerMutation, useRemoveCustomerMutation, useUpdateProductMutation, useRemoveSingleProductMutation } = baseApi;
 export default baseApi;
