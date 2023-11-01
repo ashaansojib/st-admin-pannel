@@ -10,16 +10,19 @@ const AddCustomer = () => {
     const { register, handleSubmit, reset } = useForm();
     const [setCustomer] = useSetCustomerMutation();
     const onSubmit = ({ customerName, phone, price, quantity, brand, model }) => {
-
+        // create random product id
+        const productID = Math.floor(100000 + Math.random() * 900000);
         const stock = [
             {
                 price,
                 quantity,
                 brand,
-                model
+                model,
+                productID
+
             }
         ]
-        
+
         const loadData = {
             customerName,
             phone,

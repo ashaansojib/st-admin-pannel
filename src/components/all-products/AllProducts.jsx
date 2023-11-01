@@ -9,11 +9,13 @@ const AllProducts = () => {
     const singleCustomer = useLoaderData();
     const [removeProduct] = useRemoveSingleProductMutation();
     // manage single product delete function
+    // const updateStock = [...item];
     const handleDeleteProduct = (id) => {
-        if (id) {
-            removeProduct({ customerID: singleCustomer._id, productID: id })
-        }
-        console.log(singleCustomer._id, id)
+        // console.log(id)
+        const product = singleCustomer.stock;
+        const product2 = product?.filter(single => single.productID !== id)
+        console.log(product)
+        console.log(product2)
     }
     return (
         <div className='bg-gray-100 mt-2 p-3'>
