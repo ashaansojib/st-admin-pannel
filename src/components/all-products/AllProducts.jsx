@@ -2,11 +2,16 @@ import { Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow
 import React from 'react';
 import { Link, useLoaderData, useLocation, useParams } from 'react-router-dom';
 import { FaBuffer, FaChartLine, FaDownload, FaPlus } from "react-icons/fa";
-import ProductList from './productList';
+import ProductList from './ProductList';
+import { useRemoveSingleProductMutation } from '../../redux/features/api/baseApi';
 const AllProducts = () => {
     const location = useLocation();
     const singleProductList = useLoaderData();
     const userId = useParams();
+    const [removeID] = useRemoveSingleProductMutation();
+    const handleRemove = (id) =>{
+        removeID(id);
+    }
     return (
         <div className='bg-gray-100 mt-2 p-3'>
             <div className='flex justify-between items-center pb-3'>
@@ -39,10 +44,11 @@ const AllProducts = () => {
                         </TableHead>
                         <TableBody>
                         {
-                            singleProductList?.map((product, i) => <ProductList 
+                            singleProductList?.map((product, i) => <ProductList
                             key={product._id}
                             product={product}
                             i={i}
+                            handleRemove={handleRemove}
                             ></ProductList>)
                         }
                         </TableBody>

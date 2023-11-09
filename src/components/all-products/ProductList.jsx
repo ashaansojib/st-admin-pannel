@@ -1,15 +1,9 @@
 import { TableCell, TableRow, Tooltip } from '@mui/material';
 import moment from 'moment';
 import React from 'react';
-import { useRemoveSingleProductMutation } from '../../redux/features/api/baseApi';
 
-const ProductList = ({ product, i }) => {
-    const [removeProduct] = useRemoveSingleProductMutation();
+const ProductList = ({ product, i, handleRemove }) => {
     const {_id, brand, model, price, quantity, createdAt} = product;
-    const handleRemove = (id) =>{
-        removeProduct(id)
-        console.log(id)
-    }
     return (
         <TableRow key={_id}>
             <TableCell>{i + 1}</TableCell>

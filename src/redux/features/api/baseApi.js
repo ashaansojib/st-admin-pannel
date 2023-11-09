@@ -4,7 +4,7 @@ const baseApi = createApi({
     baseQuery: fetchBaseQuery({
         baseUrl: 'http://localhost:9988'
     }),
-    tagTypes: ['customers', 'products'],
+    tagTypes: ['customers'],
     endpoints: (builder) => ({
         getCustomer: builder.query({
             query: () => '/customer-list',
@@ -32,20 +32,20 @@ const baseApi = createApi({
                 method: 'POST',
                 body: data,
             }),
-            invalidatesTags: ['products']
+            invalidatesTags: ['customers']
         }),
         specifiqUserProduct: builder.query({
             query: (userID) => ({
                 url: `/specifiq-product-list/${userID}`
             }),
-            invalidatesTags: ['products']
+            invalidatesTags: ['customers']
         }),
         removeSingleProduct: builder.mutation({
             query: (id) =>({
                 url: `/remove-specifiq-product/${id}`,
                 method: 'DELETE',
             }),
-            invalidatesTags: ['products']
+            invalidatesTags: ['customers']
         }),
     }),
 });

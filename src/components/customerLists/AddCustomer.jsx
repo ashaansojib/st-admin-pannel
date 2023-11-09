@@ -9,24 +9,10 @@ const AddCustomer = () => {
     const location = useLocation();
     const { register, handleSubmit, reset } = useForm();
     const [setCustomer] = useSetCustomerMutation();
-    const onSubmit = ({ customerName, phone, price, quantity, brand, model }) => {
-        // create random product id
-        const productID = Math.floor(100000 + Math.random() * 900000);
-        const stock = [
-            {
-                price,
-                quantity,
-                brand,
-                model,
-                productID
-
-            }
-        ]
-
+    const onSubmit = ({ customerName, phone}) => {
         const loadData = {
             customerName,
             phone,
-            stock
         }
         // customer add toast
         toast.success('Customer added successfully', {
@@ -56,10 +42,6 @@ const AddCustomer = () => {
                     <div className='grid md:grid-cols-2 grid-cols-1 gap-4 justify-between items-center'>
                         <TextField {...register("customerName", { required: true })} id="standard-basic" label="CustomerName" variant="standard" />
                         <TextField {...register("phone", { required: true })} id="standard-basic" label="Phone" variant="standard" />
-                        <TextField {...register("brand", { required: true })} id="standard-basic" label="Brand" variant="standard" />
-                        <TextField {...register("model", { required: true })} id="standard-basic" label="Model" variant="standard" />
-                        <TextField {...register("quantity", { required: true })} id="standard-basic" label="Quantity" variant="standard" />
-                        <TextField  {...register("price", { required: true })} id="standard-basic" label="Price" variant="standard" />
                         <input type="submit" className='bg-gray-500 w-full p-2 text-white font-medium  rounded-md cursor-pointer hover:bg-white hover:text-black transition hover:border border' value="Asigne" />
                     </div>
                 </form>
