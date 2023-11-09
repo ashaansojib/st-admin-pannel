@@ -4,7 +4,7 @@ const baseApi = createApi({
     baseQuery: fetchBaseQuery({
         baseUrl: 'http://localhost:9988'
     }),
-    tagTypes: ['customers'],
+    tagTypes: ['customers', 'products'],
     endpoints: (builder) => ({
         getCustomer: builder.query({
             query: () => '/customer-list',
@@ -25,22 +25,29 @@ const baseApi = createApi({
             }),
             invalidatesTags: ['customers']
         }),
-        updateProduct: builder.mutation({
-            query: (data) => ({
-                url: '/add-existing-item',
-                method: 'PUT',
+        // product managing
+        addProduct: builder.mutation({
+            query: (data) =>({
+                url: '/add-specifiq-product',
+                method: 'POST',
                 body: data,
             }),
-            invalidatesTags: ['customers']
+            invalidatesTags: ['products']
+        }),
+        specifiqUserProduct: builder.query({
+            query: (userID) => ({
+                url: `/specifiq-product-list/${userID}`
+            }),
+            invalidatesTags: ['products']
         }),
         removeSingleProduct: builder.mutation({
-            query: ({customerID, productID}) =>({
-                url: `/remove-single-product/${customerID}/${productID}`,
+            query: (id) =>({
+                url: `/remove-specifiq-product/${id}`,
                 method: 'DELETE',
             }),
-            invalidatesTags: ['customers']
+            invalidatesTags: ['products']
         }),
     }),
 });
-export const { useGetCustomerQuery, useSetCustomerMutation, useRemoveCustomerMutation, useUpdateProductMutation, useRemoveSingleProductMutation } = baseApi;
+export const { useGetCustomerQuery, useSetCustomerMutation, useRemoveCustomerMutation, useAddProductMutation, useSpecifiqUserProductQuery, useRemoveSingleProductMutation } = baseApi;
 export default baseApi;

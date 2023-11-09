@@ -2,13 +2,13 @@ import { TextField } from '@mui/material';
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { Link, useLocation, useParams } from 'react-router-dom';
-import { useUpdateProductMutation } from '../../redux/features/api/baseApi';
+import { useAddProductMutation } from '../../redux/features/api/baseApi';
 import { ToastContainer, toast } from 'react-toastify';
 
 const AddItem = () => {
     const location = useLocation();
     const customerID = useParams();
-    const [updateExistPoduct, { isLoading }] = useUpdateProductMutation();
+    const [addProduct] = useAddProductMutation();
     const { register, handleSubmit, reset } = useForm();
     const onSubmit = (item) => {
 
@@ -17,7 +17,7 @@ const AddItem = () => {
 
         item.productID = randomID;
         item.customerID = customerID.id;
-        updateExistPoduct(item)
+        addProduct(item)
 
         // product add toast
         toast.success('One Product Added!!', {
