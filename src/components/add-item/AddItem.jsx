@@ -38,7 +38,7 @@ const AddItem = () => {
         <div className='bg-gray-100 mt-2 p-3'>
             <div className='flex justify-between items-center pb-3'>
                 <h2 className='text-xl font-medium'>Add Product : </h2>
-                <p className='text-gray-600'>dashboard <Link className='underline'>{location.pathname}</Link></p>
+                <p className='text-gray-600 hidden'>dashboard <Link className='underline'>{location.pathname}</Link></p>
             </div>
             <ToastContainer />
             <form onSubmit={handleSubmit(onSubmit)}>

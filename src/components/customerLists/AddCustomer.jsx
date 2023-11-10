@@ -1,12 +1,13 @@
 import { TextField } from '@mui/material';
 import React from 'react';
 import { useForm } from 'react-hook-form';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useSetCustomerMutation } from '../../redux/features/api/baseApi';
 import { ToastContainer, toast } from 'react-toastify';
 
 const AddCustomer = () => {
     const location = useLocation();
+    const navigate = useNavigate();
     const { register, handleSubmit, reset } = useForm();
     const [setCustomer] = useSetCustomerMutation();
     const onSubmit = ({ customerName, phone}) => {
@@ -29,6 +30,7 @@ const AddCustomer = () => {
         });
         setCustomer(loadData);
         reset()
+        navigate('/')
     }
     return (
         <div className='bg-gray-100 mt-2 p-3'>

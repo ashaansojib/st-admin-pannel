@@ -11,3 +11,9 @@ body{
 .default{
     @apply hover:text-blue-600
 }
+.css-1ex1afd-MuiTableCell-root{
+    padding: 5px !important;
+}
+.css-1ygcj2i-MuiTableCell-root{
+    padding: 5px !important;
+}

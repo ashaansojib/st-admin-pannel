@@ -16,9 +16,9 @@ const AllProducts = () => {
         <div className='bg-gray-100 mt-2 p-3'>
             <div className='flex justify-between items-center pb-3'>
                 <h2 className='text-xl font-medium'>All Product Lists : </h2>
-                <p className='text-gray-600'>dashboard <span className='underline'>{location.pathname}</span></p>
+                <p className='text-gray-600'>/dashboard</p>
             </div>
-            <div className='flex justify-between items-center p-3'>
+            <div className='hidden md:flex justify-between items-center p-3'>
                 <h2 className='font-semibold text-gray-600'>Average Ammount: ( 3450 TK )</h2>
                 <div className='flex justify-between items-center gap-3'>
                     <button className='p-3 bg-blue-600 text-white rounded-md'><FaChartLine /></button>
@@ -28,11 +28,11 @@ const AllProducts = () => {
                 </div>
             </div>
             {/* product table */}
-            <div className='rounded-lg p-3'>
+            <div className='rounded-lg p-1'>
                 <TableContainer component={Paper}>
                     <Table aria-label="simple table">
                         <TableHead>
-                            <TableRow className='font-medium'>
+                            <TableRow>
                                 <TableCell><p className='font-semibold text-gray-600'>#SL</p></TableCell>
                                 <TableCell><p className='font-semibold text-gray-600'>Brand</p></TableCell>
                                 <TableCell><p className='font-semibold text-gray-600'>Model</p></TableCell>

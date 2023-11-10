@@ -6,19 +6,23 @@ const Header = () => {
     const [arrow, setArrow] = useState(true);
 
     return (
-        <div className="flex gap-3 justify-between items-center">
-            <div className="flex gap-3 items-center">
+        <div className="flex gap-3 justify-between items-center p-2">
+            <div className="md:flex gap-3 items-center hidden">
                 <button className="p-3 bg-blue-600 text-white rounded-md"><FaBars /></button>
                 <input type="text" disabled={true} name="" id="" placeholder="Search Here..." className="p-2 border rounded-md w-full bg-slate-100" />
             </div>
+            <div>
+            <h2 className='text-xl font-semibold'><Link to="/">ST Manage App</Link></h2>
+            <p className='text-sm text-blue-600'>Customer Lists</p>
+            </div>
             <div className="flex justify-end items-center gap-4">
-                <div className="flex gap-2">
+                <div className="md:flex hidden gap-2">
                     <button className="p-3 rounded-full bg-slate-100"><FaFly /></button>
                     <button className="p-3 rounded-full bg-slate-100"><FaBell /></button>
                 </div>
                 <div onClick={() => setArrow(!arrow)} className="flex gap-1 items-center cursor-pointer relative">
                     <Avatar alt="Remy Sharp" src="/mypp-circle.png" />
-                    <div>
+                    <div className="md:block hidden">
                         <p className="font-medium">Ashaduzzaman</p>
                         <span className="text-blue-600 text-center text-[13px]">Administrator</span>
                     </div>

@@ -18,7 +18,7 @@ const router = createBrowserRouter([
             {
                 path: '/all-products/:id',
                 element: <AllProducts />,
-                loader: ({ params }) => fetch(`http://localhost:9988/specifiq-product-list/${params.id}`)
+                loader: ({ params }) => fetch(`https://st-development.vercel.app/specifiq-product-list/${params.id}`)
             },
             {
                 path: '/create-customer',
