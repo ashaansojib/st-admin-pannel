@@ -1,4 +1,5 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
+import { data } from 'autoprefixer';
 const baseApi = createApi({
     reducerPath: 'api',
     baseQuery: fetchBaseQuery({
@@ -47,7 +48,21 @@ const baseApi = createApi({
             }),
             invalidatesTags: ['customers']
         }),
+        // login users managing
+        getLoginUser: builder.query({
+            query: () =>({
+                url: '/login-users',
+            }),
+            invalidatesTags: ['customers']
+        }),
+        addUsers: builder.mutation({
+            query: (data) =>({
+                url: '/store-users',
+                method: 'POST',
+                body: data,
+            }),
+        }),
     }),
 });
-export const { useGetCustomerQuery, useSetCustomerMutation, useRemoveCustomerMutation, useAddProductMutation, useSpecifiqUserProductQuery, useRemoveSingleProductMutation } = baseApi;
+export const { useGetCustomerQuery, useSetCustomerMutation, useRemoveCustomerMutation, useAddProductMutation, useSpecifiqUserProductQuery, useRemoveSingleProductMutation, useGetLoginUserQuery, useAddUsersMutation } = baseApi;
 export default baseApi;

@@ -32,7 +32,7 @@ const router = createBrowserRouter([
                 element: <ManageCustomer />
             },
             {
-                path: '/admin/manage-users',
+                path: '/manage-users',
                 element: <UserLists />
             }
         ]

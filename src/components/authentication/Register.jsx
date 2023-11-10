@@ -4,8 +4,10 @@ import { useForm } from 'react-hook-form';
 import { Link, useNavigate } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import { AuthContext } from '../../auth/AuthProvider';
+import { useAddUsersMutation } from '../../redux/features/api/baseApi';
 
 const Register = () => {
+    const [addUser] = useAddUsersMutation();
     const { createUser, updateUserInfo } = useContext(AuthContext);
     const { register, handleSubmit, reset } = useForm();
     const navigate = useNavigate();
@@ -13,10 +15,10 @@ const Register = () => {
         createUser(email, password)
         .then( result =>{
             const createUser = result.user;
-            console.log(createUser)
             updateUserInfo(name, photo)
             navigate('/')
-            
+            const userInfo = {email, password}
+            addUser(userInfo)
         toast.success('Register New User..!!', {
             position: "top-center",
             autoClose: 2000,

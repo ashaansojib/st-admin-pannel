@@ -20,25 +20,6 @@ const Aside = () => {
                             item={item}
                         ></Customers>)
                 }
-                {/* other lists in side
-                <NavLink to='/' className={({ isActive }) => isActive ? 'active' : 'default'}>
-                    <div className='flex items-center gap-3 font-medium py-2 border-b'>
-                        <FaStoreAlt />
-                        Packages Stock
-                    </div>
-                </NavLink>
-                <NavLink to='/manage-customer' className={({ isActive }) => isActive ? 'active' : 'default'}>
-                    <div className='flex items-center gap-3 font-medium py-2 border-b'>
-                        <FaUserEdit />
-                        Manage Customer
-                    </div>
-                </NavLink>
-                <NavLink to='admin/manage-users' className={({ isActive }) => isActive ? 'active' : 'default'}>
-                    <div className='flex items-center gap-3 font-medium py-2 border-b'>
-                        <FaUserAlt />
-                        Manage Users
-                    </div>
-                </NavLink> */}
             </nav>
         </aside>
     );
