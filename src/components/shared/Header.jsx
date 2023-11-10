@@ -1,10 +1,15 @@
 import { FaAngleDown, FaAngleUp, FaBars, FaBell, FaFly } from "react-icons/fa";
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Avatar } from "@mui/material";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../auth/AuthProvider";
 const Header = () => {
     const [arrow, setArrow] = useState(true);
-
+    const {logOut} = useContext(AuthContext);
+    const handleLogout = () =>{
+        logOut()
+        setArrow(!arrow)
+    }
     return (
         <div className="flex gap-3 justify-between items-center p-2">
             <div className="md:flex gap-3 items-center hidden">
@@ -43,7 +48,7 @@ const Header = () => {
                     </div>
                     <Link onClick={()=> setArrow(!arrow)} className="p-2 font-medium text-gray-700 w-full inline-block border-t hover:bg-white">My Profile</Link>
                     <Link to="/create-customer" onClick={()=> setArrow(!arrow)} className="p-2 font-medium text-gray-700 w-full inline-block border-t hover:bg-white">Add Customer</Link>
-                    <Link onClick={()=> setArrow(!arrow)} className="p-2 font-medium text-gray-700 w-full inline-block border-t hover:bg-white">Logout</Link>
+                    <Link onClick={handleLogout} className="p-2 font-medium text-gray-700 w-full inline-block border-t hover:bg-white">Logout</Link>
                 </div>
             </div>
         </div>
