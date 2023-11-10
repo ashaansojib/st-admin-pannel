@@ -5,11 +5,14 @@ import AllProducts from "../components/all-products/AllProducts";
 import UserLists from "../components/admin/UserLists";
 import AddCustomer from "../components/customerLists/AddCustomer";
 import ManageCustomer from "../components/admin/ManageCustomer";
+import Login from "../components/authentication/Login";
+import PrivetRoute from "./PrivetRoute";
+import Register from "../components/authentication/Register";
 
 const router = createBrowserRouter([
     {
         path: '/',
-        element: <Dashboard />,
+        element: <PrivetRoute><Dashboard /></PrivetRoute>,
         children: [
             {
                 path: '/add-product/:id',
@@ -33,6 +36,14 @@ const router = createBrowserRouter([
                 element: <UserLists />
             }
         ]
+    },
+    {
+        path: '/login',
+        element: <Login />
+    },
+    {
+        path: '/register',
+        element: <Register />
     },
     {
         path: '*',
