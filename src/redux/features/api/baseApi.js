@@ -28,7 +28,7 @@ const baseApi = createApi({
         }),
         // product managing
         addProduct: builder.mutation({
-            query: (data) =>({
+            query: (data) => ({
                 url: '/add-specifiq-product',
                 method: 'POST',
                 body: data,
@@ -42,7 +42,7 @@ const baseApi = createApi({
             invalidatesTags: ['customers']
         }),
         removeSingleProduct: builder.mutation({
-            query: (id) =>({
+            query: (id) => ({
                 url: `/remove-specifiq-product/${id}`,
                 method: 'DELETE',
             }),
@@ -50,19 +50,26 @@ const baseApi = createApi({
         }),
         // login users managing
         getLoginUser: builder.query({
-            query: () =>({
+            query: () => ({
                 url: '/login-users',
             }),
             invalidatesTags: ['customers']
         }),
         addUsers: builder.mutation({
-            query: (data) =>({
+            query: (data) => ({
                 url: '/store-users',
                 method: 'POST',
                 body: data,
             }),
         }),
+        makeAdmin: builder.mutation({
+            query: ({ _id, data }) => ({
+                url: `/update-user-role/${_id}`,
+                method: 'PATCH',
+                body: data,
+            }),
+        }),
     }),
 });
-export const { useGetCustomerQuery, useSetCustomerMutation, useRemoveCustomerMutation, useAddProductMutation, useSpecifiqUserProductQuery, useRemoveSingleProductMutation, useGetLoginUserQuery, useAddUsersMutation } = baseApi;
+export const { useGetCustomerQuery, useSetCustomerMutation, useRemoveCustomerMutation, useAddProductMutation, useSpecifiqUserProductQuery, useRemoveSingleProductMutation, useGetLoginUserQuery, useAddUsersMutation, useMakeAdminMutation } = baseApi;
 export default baseApi;
