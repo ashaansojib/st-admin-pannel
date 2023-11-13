@@ -1,22 +1,26 @@
-import { Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from '@mui/material';
+import { Button, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from '@mui/material';
 import React from 'react';
-import { Link, useLoaderData, useLocation, useParams } from 'react-router-dom';
+import { Link, useLoaderData, useLocation, useNavigate, useParams } from 'react-router-dom';
 import { FaBuffer, FaChartLine, FaDownload, FaPlus } from "react-icons/fa";
 import ProductList from './ProductList';
 import { useRemoveSingleProductMutation } from '../../redux/features/api/baseApi';
 const AllProducts = () => {
     const location = useLocation();
+    const navigate = useNavigate()
     const singleProductList = useLoaderData();
     const userId = useParams();
     const [removeID] = useRemoveSingleProductMutation();
     const handleRemove = (id) =>{
         removeID(id);
     }
+    const back = () =>{
+        navigate(-1)
+    }
     return (
         <div className='bg-gray-100 mt-2 p-3'>
             <div className='flex justify-between items-center pb-3'>
                 <h2 className='text-xl font-medium'>All Product Lists : </h2>
-                <p className='text-gray-600'>/dashboard</p>
+                <Button onClick={back} variant='primary'>Back</Button>
             </div>
             <div className='hidden md:flex justify-between items-center p-3'>
                 <h2 className='font-semibold text-gray-600'>Average Ammount: ( 3450 TK )</h2>

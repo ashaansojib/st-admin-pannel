@@ -1,12 +1,13 @@
-import { TextField } from '@mui/material';
+import { Button, TextField } from '@mui/material';
 import React from 'react';
 import { useForm } from 'react-hook-form';
-import { Link, useLocation, useParams } from 'react-router-dom';
+import { Link, useLocation, useNavigate, useParams } from 'react-router-dom';
 import { useAddProductMutation } from '../../redux/features/api/baseApi';
 import { ToastContainer, toast } from 'react-toastify';
 
 const AddItem = () => {
     const location = useLocation();
+    const navigate = useNavigate();
     const customerID = useParams();
     const [addProduct] = useAddProductMutation();
     const { register, handleSubmit, reset } = useForm();
@@ -34,11 +35,14 @@ const AddItem = () => {
         });
         reset()
     }
+    const back = () =>{
+        navigate(-1)
+    }
     return (
         <div className='bg-gray-100 mt-2 p-3'>
             <div className='flex justify-between items-center pb-3'>
                 <h2 className='text-xl font-medium'>Add Product : </h2>
-                <p className='text-gray-600 hidden'>dashboard <Link className='underline'>{location.pathname}</Link></p>
+                <Button onClick={back} variant='primary'>Back</Button>
             </div>
             <ToastContainer />
             <form onSubmit={handleSubmit(onSubmit)}>

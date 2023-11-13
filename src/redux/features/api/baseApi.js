@@ -1,11 +1,10 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
-import { data } from 'autoprefixer';
 const baseApi = createApi({
     reducerPath: 'api',
     baseQuery: fetchBaseQuery({
         baseUrl: 'https://st-development.vercel.app'
     }),
-    tagTypes: ['customers'],
+    tagTypes: ['customers', 'users'],
     endpoints: (builder) => ({
         getCustomer: builder.query({
             query: () => '/customer-list',
@@ -61,15 +60,24 @@ const baseApi = createApi({
                 method: 'POST',
                 body: data,
             }),
+            invalidatesTags: ['customers']
         }),
         makeAdmin: builder.mutation({
-            query: ({ _id, data }) => ({
-                url: `/update-user-role/${_id}`,
+            query: ({ id, data }) => ({
+                url: `/update-user-role/${id}`,
                 method: 'PATCH',
                 body: data,
             }),
+            invalidatesTags: ['customers']
+        }),
+        removeUser: builder.mutation({
+            query: (id) => ({
+                url: `/remove-login-user/${id}`,
+                method: 'DELETE',
+            }),
+            invalidatesTags: ['customers']
         }),
     }),
 });
-export const { useGetCustomerQuery, useSetCustomerMutation, useRemoveCustomerMutation, useAddProductMutation, useSpecifiqUserProductQuery, useRemoveSingleProductMutation, useGetLoginUserQuery, useAddUsersMutation, useMakeAdminMutation } = baseApi;
+export const { useGetCustomerQuery, useSetCustomerMutation, useRemoveCustomerMutation, useAddProductMutation, useSpecifiqUserProductQuery, useRemoveSingleProductMutation, useGetLoginUserQuery, useAddUsersMutation, useMakeAdminMutation, useRemoveUserMutation } = baseApi;
 export default baseApi;
