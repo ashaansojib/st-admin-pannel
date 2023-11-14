@@ -4,11 +4,11 @@ const baseApi = createApi({
     baseQuery: fetchBaseQuery({
         baseUrl: 'https://st-development.vercel.app'
     }),
-    tagTypes: ['customers', 'users'],
+    tagTypes: ['customers'],
     endpoints: (builder) => ({
         getCustomer: builder.query({
             query: () => '/customer-list',
-            providesTags: ['customers']
+            providesTags: ['customers'],
         }),
         setCustomer: builder.mutation({
             query: (data) => ({
@@ -16,7 +16,7 @@ const baseApi = createApi({
                 method: 'POST',
                 body: data,
             }),
-            invalidatesTags: ['customers']
+            invalidatesTags: ['customers'],
         }),
         removeCustomer: builder.mutation({
             query: (id) => ({
@@ -51,8 +51,8 @@ const baseApi = createApi({
         getLoginUser: builder.query({
             query: () => ({
                 url: '/login-users',
+                providesTags: ['customers']
             }),
-            invalidatesTags: ['customers']
         }),
         addUsers: builder.mutation({
             query: (data) => ({
