@@ -12,7 +12,7 @@ const Header = () => {
     }
     return (
         <div className="flex gap-3 justify-between items-center p-2">
-            <div className="md:flex gap-3 items-center hidden">
+            <div className="hidden">
                 <button className="p-3 bg-blue-600 text-white rounded-md"><FaBars /></button>
                 <input type="text" disabled={true} name="" id="" placeholder="Search Here..." className="p-2 border rounded-md w-full bg-slate-100" />
             </div>
@@ -21,7 +21,7 @@ const Header = () => {
             <p className='text-sm text-blue-600'>Customer Lists</p>
             </div>
             <div className="flex justify-end items-center gap-4">
-                <div className="md:flex hidden gap-2">
+                <div className="hidden gap-2">
                     <button className="p-3 rounded-full bg-slate-100"><FaFly /></button>
                     <button className="p-3 rounded-full bg-slate-100"><FaBell /></button>
                 </div>

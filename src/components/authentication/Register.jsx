@@ -54,7 +54,7 @@ const Register = () => {
         reset()
     }
     return (
-        <div className='max-w-screen-md mx-auto'>
+        <div className='max-w-screen-md mx-auto p-2'>
             <ToastContainer />
             <h2 className='text-2xl font-semibold pt-2'>Registration Form!</h2>
             <form onSubmit={handleSubmit(onSubmit)}>

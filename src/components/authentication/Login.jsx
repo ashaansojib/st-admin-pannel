@@ -89,7 +89,7 @@ const Login = () => {
             })
     }
     return (
-        <div className='max-w-screen-md mx-auto'>
+        <div className='max-w-screen-md mx-auto p-2'>
             <ToastContainer />
             <h2 className='text-2xl font-semibold pt-2'>Login Area!</h2>
             <form onSubmit={handleSubmit(onSubmit)}>
