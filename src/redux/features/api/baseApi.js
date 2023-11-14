@@ -26,17 +26,17 @@ const baseApi = createApi({
             invalidatesTags: ['customers']
         }),
         // product managing
+        specifiqUserProduct: builder.query({
+            query: (userID) => ({
+                url: `/specifiq-product-list/${userID}`,
+                providesTags: ['customers'],
+            }),
+        }),
         addProduct: builder.mutation({
             query: (data) => ({
                 url: '/add-specifiq-product',
                 method: 'POST',
                 body: data,
-            }),
-            invalidatesTags: ['customers']
-        }),
-        specifiqUserProduct: builder.query({
-            query: (userID) => ({
-                url: `/specifiq-product-list/${userID}`
             }),
             invalidatesTags: ['customers']
         }),

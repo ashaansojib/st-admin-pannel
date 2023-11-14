@@ -8,9 +8,8 @@ import { Skeleton } from '@mui/material';
 const Aside = () => {
     const { data: customers, isLoading, isError } = useGetCustomerQuery();
     return (
-        <aside className='overflow-y-auto h-full'>
-            
-            <nav className='text-gray-700 px-2'>
+        <aside className='overflow-hideen h-full'>
+            <nav className='text-gray-700 px-2 overflow-y-auto'>
                 {
                     isLoading ? <>
                         <Skeleton />

@@ -10,10 +10,10 @@ const AllProducts = () => {
     const singleProductList = useLoaderData();
     const userId = useParams();
     const [removeID] = useRemoveSingleProductMutation();
-    const handleRemove = (id) =>{
+    const handleRemove = (id) => {
         removeID(id);
     }
-    const back = () =>{
+    const back = () => {
         navigate(-1)
     }
     return (
@@ -47,14 +47,14 @@ const AllProducts = () => {
                             </TableRow>
                         </TableHead>
                         <TableBody>
-                        {
-                            singleProductList?.map((product, i) => <ProductList
-                            key={product._id}
-                            product={product}
-                            i={i}
-                            handleRemove={handleRemove}
-                            ></ProductList>)
-                        }
+                            {
+                                singleProductList?.map((product, i) => <ProductList
+                                    key={product._id}
+                                    product={product}
+                                    i={i}
+                                    handleRemove={handleRemove}
+                                ></ProductList>)
+                            }
                         </TableBody>
                     </Table>
                 </TableContainer>
