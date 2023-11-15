@@ -40,7 +40,7 @@ const AddItem = () => {
     return (
         <div className='add-product'>
             <div className='page-header'>
-                <h2 className='text-xl font-medium'>Add Product : </h2>
+                <h2 className='page-title'>Add Product :-</h2>
                 <Button onClick={back} variant='primary'>Back</Button>
             </div>
             <ToastContainer />
