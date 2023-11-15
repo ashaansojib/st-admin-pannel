@@ -10,7 +10,7 @@ const Customers = ({ item }) => {
         <Disclosure>
             {({ open }) => (
                 <>
-                    <Disclosure.Button className="flex w-full justify-between items-center py-2 border-b">
+                    <Disclosure.Button className="customer-container">
                         <span className='font-medium uppercase'>{customerName}</span>
                         <FaAngleUp
                             className={`${open ? 'rotate-180 transform' : ''
@@ -19,13 +19,13 @@ const Customers = ({ item }) => {
                     </Disclosure.Button>
                     <Disclosure.Panel className="pb-2 text-sm text-gray-500">
                         <NavLink className={({ isActive }) => isActive ? 'active' : 'default'} to={`/all-products/${_id}`}>
-                            <div className='flex items-center gap-3 font-medium p-2 hover:bg-slate-100'>
+                            <div className='customer-item'>
                                 <FaFileAlt />
                                 Product List
                             </div>
                         </NavLink>
                         <NavLink to={`/add-product/${_id}`} className={({ isActive }) => isActive ? 'active' : 'default'}>
-                            <div className='flex items-center gap-3 font-medium p-2 hover:bg-slate-100'>
+                            <div className='customer-item'>
                                 <FaPen />
                                 Add Product
                             </div>

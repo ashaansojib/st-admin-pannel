@@ -25,11 +25,15 @@ const ManageCustomer = () => {
     return (
         <div className='p-2 bg-slate-100 mt-2'>
             <ToastContainer />
-            <h2 className='font-semibold text-gray-700'>Manage Customer :-</h2>
-            <div className='grid lg:grid-cols-4 md:grid-cols-3 grid-cols-1 gap-3 justify-between items-center py-3'>
+            <h2 className='page-title'>Manage Customer :-</h2>
+            <div className='manage-page-container'>
                 {
                     isLoading ?
-                        <Skeleton variant="rectangular" width={210} height={60} /> :
+                        <>
+                        <Skeleton />
+                        <Skeleton animation="wave" />
+                        <Skeleton animation={false} />
+                        </> :
                         customers?.map((item) =>
                             <div key={item._id} className='p-2 border rounded-md bg-white'>
                                 <div className='flex justify-between items-center'>

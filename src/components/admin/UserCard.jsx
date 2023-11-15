@@ -5,7 +5,7 @@ const UserCard = ({ user, makeAdmin, makeUser, removeUser }) => {
     const { email, _id, role } = user;
 
     return (
-        <div className='p-2 bg-white'>
+        <div className='p-2 bg-white mb-2 rounded-md'>
             <div className='flex justify-between'>
                 <div>
                     <Avatar src='/mypp-circle.png' alt='Image' />

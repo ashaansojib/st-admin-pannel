@@ -19,9 +19,9 @@ const UserLists = () => {
         removeUserId(id)
     }
     return (
-        <div className='p-2 bg-slate-50'>
-            <p className='font-semibold'>All Logged Users: </p>
-            <div className='grid grid-cols-2 gap-2 justify-center items-center'>
+        <div className='p-2'>
+            <p className='page-title'>All Logged Users: </p>
+            <div className='manage-page-container'>
                 {
                     isLoading ? <>
                         <Skeleton />

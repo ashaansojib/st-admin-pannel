@@ -36,15 +36,15 @@ const AddCustomer = () => {
         <div className='bg-gray-100 mt-2 p-3'>
             <div className='lg:w-2/3 mx-auto'>
                 <ToastContainer />
-                <div className='flex justify-between items-center pb-3'>
-                    <h2 className='text-xl font-medium'>Add Product : </h2>
+                <div className='page-header'>
+                    <h2 className='page-title'>Add Product : </h2>
                     <p className='text-gray-600'>dashboard <Link className='underline'>{location.pathname}</Link></p>
                 </div>
                 <form onSubmit={handleSubmit(onSubmit)}>
-                    <div className='grid md:grid-cols-2 grid-cols-1 gap-4 justify-between items-center'>
+                    <div className='form-header'>
                         <TextField {...register("customerName", { required: true })} id="standard-basic" label="CustomerName" variant="standard" />
                         <TextField {...register("phone", { required: true })} id="standard-basic" label="Phone" variant="standard" />
-                        <input type="submit" className='bg-gray-500 w-full p-2 text-white font-medium  rounded-md cursor-pointer hover:bg-white hover:text-black transition hover:border border' value="Asigne" />
+                        <input type="submit" className='submit-btn' value="Asigne" />
                     </div>
                 </form>
             </div>

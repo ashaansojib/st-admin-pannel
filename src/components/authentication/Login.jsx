@@ -89,18 +89,18 @@ const Login = () => {
             })
     }
     return (
-        <div className='max-w-screen-md mx-auto p-2'>
+        <div className='max-w-md mx-auto p-2'>
             <ToastContainer />
             <h2 className='text-2xl font-semibold pt-2'>Login Area!</h2>
             <form onSubmit={handleSubmit(onSubmit)}>
-                <div className='grid grid-cols-1 gap-2 bg-gray-50'>
+                <div className='form-header'>
                     <TextField {...register("email", { required: true })} id="standard-basic" label="Email" variant="standard" />
                     <TextField {...register("password", { required: true })} id="standard-basic" label="Pasword" variant="standard" />
                     <div className='flex justify-between items-center gap-2'>
                         <p className='font-medium text-gray-700'><Link to="/register">Don't Account?</Link></p>
                         <Button onClick={handleGoogleLogin} variant='primary'>Google Login</Button>
                     </div>
-                    <input type="submit" className='bg-gray-500 w-full p-2 font-medium cursor-pointer hover:bg-white text-white hover:text-black transition hover:border border rounded-md' value="Login Here" />
+                    <input type="submit" className="submit-btn" value="Login Here" />
                 </div>
             </form>
         </div>
