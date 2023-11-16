@@ -4,7 +4,7 @@ const baseApi = createApi({
     baseQuery: fetchBaseQuery({
         baseUrl: 'https://st-development.vercel.app'
     }),
-    tagTypes: ['customers'],
+    tagTypes: ['customers', 'users', 'product'],
     endpoints: (builder) => ({
         getCustomer: builder.query({
             query: () => '/customer-list',
@@ -29,7 +29,7 @@ const baseApi = createApi({
         specifiqUserProduct: builder.query({
             query: (userID) => ({
                 url: `/specifiq-product-list/${userID}`,
-                providesTags: ['customers'],
+                providesTags: ['product'],
             }),
         }),
         addProduct: builder.mutation({
@@ -38,20 +38,20 @@ const baseApi = createApi({
                 method: 'POST',
                 body: data,
             }),
-            invalidatesTags: ['customers']
+            invalidatesTags: ['product']
         }),
         removeSingleProduct: builder.mutation({
             query: (id) => ({
                 url: `/remove-specifiq-product/${id}`,
                 method: 'DELETE',
             }),
-            invalidatesTags: ['customers']
+            invalidatesTags: ['product']
         }),
         // login users managing
         getLoginUser: builder.query({
             query: () => ({
                 url: '/login-users',
-                providesTags: ['customers']
+                providesTags: ['users']
             }),
         }),
         addUsers: builder.mutation({
@@ -60,7 +60,7 @@ const baseApi = createApi({
                 method: 'POST',
                 body: data,
             }),
-            invalidatesTags: ['customers']
+            invalidatesTags: ['users']
         }),
         makeAdmin: builder.mutation({
             query: ({ id, data }) => ({
@@ -68,14 +68,14 @@ const baseApi = createApi({
                 method: 'PATCH',
                 body: data,
             }),
-            invalidatesTags: ['customers']
+            invalidatesTags: ['users']
         }),
         removeUser: builder.mutation({
             query: (id) => ({
                 url: `/remove-login-user/${id}`,
                 method: 'DELETE',
             }),
-            invalidatesTags: ['customers']
+            invalidatesTags: ['users']
         }),
     }),
 });
