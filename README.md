@@ -7,3 +7,4 @@
 * npm install react-hook-form
 * npm install @reduxjs/toolkit react-redux
 * npm i react-toastify
+* npm install react-spinners --save
