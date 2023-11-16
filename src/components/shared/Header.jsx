@@ -36,7 +36,6 @@ const Header = () => {
                     </div>
                     <Link to="/manage-users" className='profile-link'>Manage User</Link>
                     <Link to="/manage-customer" className='profile-link'>Manage Customer</Link>
-                    <Link to="/manage-cu" className='profile-link'>Manage Customer</Link>
                     <Link to="/create-customer" className='profile-link'>Add Customer</Link>
                     <Link onClick={handleLogout} className='profile-link'>Logout</Link>
                 </div>

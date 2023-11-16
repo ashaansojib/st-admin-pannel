@@ -12,7 +12,7 @@ body{
     @apply hover:text-blue-600
 }
 .form-header{
-    @apply grid md:grid-cols-2 grid-cols-1 gap-4 justify-between items-center
+    @apply grid grid-cols-1 gap-4 justify-between items-center
 }
 .submit-btn{
     @apply bg-gray-500 w-full p-2 font-medium cursor-pointer hover:bg-white text-white hover:text-black transition hover:border border rounded-md

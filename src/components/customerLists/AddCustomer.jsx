@@ -34,7 +34,7 @@ const AddCustomer = () => {
     }
     return (
         <div className='bg-gray-100 mt-2 p-3'>
-            <div className='lg:w-2/3 mx-auto'>
+            <div className='mx-auto'>
                 <ToastContainer />
                 <div className='page-header'>
                     <h2 className='page-title'>Add Product : </h2>
