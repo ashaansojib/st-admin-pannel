@@ -23,7 +23,7 @@ const baseApi = createApi({
                 url: `/remove-customer/${id}`,
                 method: 'DELETE'
             }),
-            invalidatesTags: ['customers']
+            invalidatesTags: ['customers'],
         }),
         // product managing
         specifiqUserProduct: builder.query({
