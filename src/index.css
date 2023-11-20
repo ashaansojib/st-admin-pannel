@@ -29,6 +29,12 @@ body{
 .css-1ygcj2i-MuiTableCell-root{
     padding: 5px !important;
 }
+.my-btn{
+    @apply px-2 py-1 bg-blue-500 text-white font-semibold inline-block rounded-md
+}
+.my-container{
+    @apply max-w-[1150px] mx-auto
+}
 /* dashboard css ------------------------------------*/
 .dashboard{
     @apply max-w-md mx-auto h-full bg-slate-50 relative

@@ -8,12 +8,17 @@ import ManageCustomer from "../components/admin/ManageCustomer";
 import Login from "../components/authentication/Login";
 import PrivetRoute from "./PrivetRoute";
 import Register from "../components/authentication/Register";
+import Home from "../layout/Home";
 
 const router = createBrowserRouter([
     {
         path: '/',
-        element: <PrivetRoute><Dashboard /></PrivetRoute>,
+        element: <Home />,
         children: [
+            {
+                path: '/dashboard',
+                element: <PrivetRoute><Dashboard /></PrivetRoute>
+            },
             {
                 path: '/add-product/:id',
                 element: <AddItem />
